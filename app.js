@@ -26,6 +26,7 @@ var adminWelcome = require('./routes/adminWelcome');
 
 //android
 var participantInfo = require("./android/participants")
+var event = require("./android/event")
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -55,8 +56,10 @@ app.use('/ema/users', users);
 app.use('/ema/showUser', showUser);
 app.use('/ema/adminWelcome', adminWelcome);
 
+
 //android
 app.use('/ema/participants', participantInfo)
+app.use('/ema/event',event);
 
 app.listen(port, (err)=>{
   if(err) console.log("Error in connection");
