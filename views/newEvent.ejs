@@ -1,0 +1,39 @@
+<% include partials/header %>
+<% include partials/navBarStyle %>
+<% include partials/navbar %>
+<% include partials/lineGaps %>
+
+<div style = "font-size: 40px; color: #888888" align = "center">
+  Add New Event Here
+</div>
+<form action="/ema/newEvent/added" method="post" style = "margin: 30px 40px;" align = "center" id = "form1">
+  <label><big style="font-size: 30px">Event Name</big></label> <br>
+  <input type="text" name="ename" value="" style="width: 40%; border: 2px solid; border-radius: 4px; padding:12px 20px; font-size: 20px" ><br><br>
+
+  <label><big style="font-size: 30px">Location</big></label> <br>
+  <input type="text" name="location" value="" style="width: 40%; border: 2px solid; border-radius: 4px; padding:12px 20px; font-size: 20px" ><br><br>
+
+  <!--<label><big style="font-size: 30px">Short Description</big></label> <br>
+  <textarea name="eventDes" rows="5" cols="10" style="width: 40%; border: 2px solid; border-radius: 4px; padding:12px 20px; font-size: 20px" form="form1"></textarea><br><br>//-->
+
+  <label><big style="font-size: 30px">Starting Date</big></label> <br>
+  <input type="date" name="startDate" value="" style="width: 40%; border: 2px solid; border-radius: 4px; padding:12px 20px; font-size: 20px" ><br><br>
+
+  <label><big style="font-size: 30px">Ending Date</big></label> <br>
+  <input type="date" name="endDate" value="" style="width: 40%; border: 2px solid; border-radius: 4px; padding:12px 20px; font-size: 20px" ><br><br>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">
+    <big style="font-size: 30px">Choose Admin</big></label>
+    <select class="form-control form-control-lg" name="admin">
+      <% users.forEach((user)=>{%>
+      <option><%=user.email%></option>
+   <%})%>
+    </select>
+  </div>
+
+  <input type="submit" name="btnSubmit" value="Add" style="width: 80px; height: 50px; color: green; font-size: 20px; font-weight: bold">
+
+</form>
+<% include partials/navbarScript %>
+
+<% include partials/footer %>

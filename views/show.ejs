@@ -1,0 +1,48 @@
+<% include partials/header %>
+<style>
+  #col{
+    padding:10px;
+  }
+</style>
+<% include partials/navBarStyle %>
+<% include partials/navbar %>
+<% include partials/lineGaps %>
+<div style = "font-size: 40px; color: #888888" align = "center">
+  About Event
+</div>
+<br><br>
+<div align= "center" >
+  <form class="" action="/ema/newEvent/saved" method="post">
+
+
+  <table cellpadding="0" cellspacing = "0" border = "1" width = "70%" style = "font-size: 20px">
+    <tr>
+      <td id = "col"> event name </td>
+      <td><input type="text" name="ename" value="<%=row.name%>" style = "width:100%"></td>
+    </tr>
+    <tr>
+      <td id = "col"> event Location </td>
+      <td>
+        <input type="text" name="location" value="<%=row.location%>" style = "width:100%">
+      </td>
+    </tr>
+      <td id = "col"> event Start Date </td>
+      <td><input type="date" name="startDate" value="<%=row.start_date%>" style = "width:100%"></td>
+    <tr>
+      <td id = "col"> event End Date </td>
+      <td><input type="date" name="endDate" value="<%=row.end_date%>" style = "width:100%"></td>
+
+    </tr>
+    <tr>
+      <td id = "col"> Admin Email </td>
+      <td><%=row.admin%></td>
+
+    </tr>
+  </table><br><br>
+  <input type="hidden"  name="eventId" value=<%=row.id%> >
+   <input class="btn btn-primary" type="submit" name="btnSubmit" value="Save">
+  </form>
+</div>
+<% include partials/navbarScript %>
+
+<% include partials/footer %>

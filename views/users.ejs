@@ -1,0 +1,33 @@
+<% include partials/header %>
+<% include partials/navBarStyle %>
+<% include partials/navbar %>
+<% include partials/lineGaps %>
+
+	<section class = "container">
+		<h3> List of Users</h3>
+
+		<table class="table table-hover">
+		  <thead>
+		    <tr>
+		      <th scope="col">User Name</th>
+		      <th scope="col">Email </th>
+		    </tr>
+		  </thead>
+		  <tbody>
+
+					<% lists.forEach((user)=>{%>
+							<tr class="table-active">
+								<td><a href="/ema/showUser/<%= user.id %>"> <%=user.name%> </a></td>
+								<td><%=user.email%></td>
+							</tr>
+					<%})%>
+
+		  </tbody>
+		</table>
+
+
+
+
+		<% include partials/navbarScript %>
+
+		<% include partials/footer %>
