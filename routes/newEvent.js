@@ -30,9 +30,10 @@ router.post('/added', authcheck, (req,res) => {
     var sdate = req.body.startDate;
     var edate = req.body.endDate;
     var admin = req.body.admin;
+    var  code  = "";
 
     //res.send("Added succesfully");
-    var sql = `INSERT INTO events (name, location, start_date, end_date, admin) VALUES ('${name}','${loc}','${sdate}','${edate}','${admin}' )`;
+    var sql = `INSERT INTO events (name, location, start_date, end_date, admin, code) VALUES ('${name}','${loc}','${sdate}','${edate}','${admin}','${code}' )`;
     db.query(sql, function (err, result) {
       if (err) throw err;
       console.log("1 record inserted");

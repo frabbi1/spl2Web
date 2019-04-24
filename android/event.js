@@ -34,4 +34,26 @@ router.get("/fetch",(req,res)=>{
 	})
 });
 
+router.post('/register', (req,res)=>{
+	var e_id = req.query.e_id;
+	var p_id = req.query.p_id;
+
+	var qry = `select * from event_participant where (e_id = ${e_id} and p_id = '${p_id}')`
+	db.query(qry,(err1,result1)=>{
+		if(err1) throw err1;
+		if(!(result1.length>0)){
+			var sql = `insert into event_participant (e_id,p_id) VALUES (${e_id},'${p_id}')`;
+
+			db.query(sql,(err,result)=>{
+				if(err) throw err;
+				res.end("");
+			})
+		}
+		res.end("");
+	})
+
+	
+
+})
+
 module.exports = router;
