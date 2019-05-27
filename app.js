@@ -23,18 +23,24 @@ var homepage = require('./routes/homepage');
 var users = require("./routes/users");
 var showUser = require("./routes/showUser");
 var adminWelcome = require('./routes/adminWelcome');
+var photo = require('./routes/photo');
+var files = require('./routes/files');
 
 //android
 var participantInfo = require("./android/participants")
 var event = require("./android/event")
 
+
+app.use('/ema/public', express.static(path.join(__dirname, 'public')))
+app.use('/ema/uploads', express.static(path.join(__dirname, 'uploads')))
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 //app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
-app.use('/public', express.static('public'));
+//app.use(express.static('./public'));
 app.use(cookieSession({
   name: 'session',
   maxAge: 24*60*60*1000,
@@ -55,6 +61,8 @@ app.use('/ema/welcome', welcome);
 app.use('/ema/users', users);
 app.use('/ema/showUser', showUser);
 app.use('/ema/adminWelcome', adminWelcome);
+app.use('/ema/photo', photo);
+app.use('/ema/files', files);
 
 
 //android

@@ -1,0 +1,73 @@
+
+<html>
+<head>
+	<title>
+		EventMeetApp
+		
+	</title>
+
+	<style type="text/css">
+		#topSec{
+			height: 70px;
+			width: 100%;
+			background-color: #234567;
+			text-decoration: none;
+			text-align: center;
+
+		}
+		#midSec{
+			color: white;
+		}
+		#finalSec a:hover img{
+			-webkit-transform: scale(1);
+			transform: scale(1);
+			opacity: .7;
+			height: 170px;
+			width: 170px;
+		}
+	</style>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="margin: 0px; background-color: #303030">
+
+
+	<div id="topSec">
+
+		<div style="font-size: 30px; padding-top: 10px; color: white;">EventMeetApp</div>		
+	</div>
+
+
+	<div id="midSec" class="row">
+		<a class="btn btn-lg btn-outline-light  col-4 txt" href="/ema/adminWelcome"> home </a>
+		<a class="btn btn-lg btn-outline-light  col-4" href="/ema/adminWelcome/events"> events </a>
+		<a class="btn btn-lg btn-outline-light  col-4" href="/ema/adminWelcome/profile"> profile </a>
+	</div>
+	<br>
+	<div class="row" style="margin-left: 10%; margin-top: 100px;" id="finalSec">
+
+		<a href="/ema/adminWelcome/events/show/<%= id %>" class="col-4">
+			<img src="/ema/public/images/details.png" alt = "details"width="150px" height="150px">
+		</a>
+		<a href="#" class="col-4">
+			<img src="/ema/public/images/notify.jpg" alt="notify" width="150px" height="150px">
+		</a>
+		<a href="/ema/photo/<%= id %>" class="col-4">
+			<img src="/ema/public/images/upload.png" width="150px" height="150px" alt="upload">
+		</a>
+	</div>
+	<div class="row" style="margin-left: 10%; margin-top: 30px;" id="finalSec">
+		<a href="/ema/photo/gallery/<%= id %>" class="col-6 text-center">
+			<img src="/ema/public/images/gallery.png" width="150px" height="150px">
+		</a>
+		<a href="/ema/files/gallery/<%= id %>" class="col-6 ">
+			<img src="/ema/public/images/file.jpg" width="150px" height="150px">
+		</a>
+		
+	</div>
+		
+
+	</div>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

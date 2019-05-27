@@ -50,6 +50,12 @@ router.get("/events/show/:id", authcheck, (req,res)=>{
     });
   });
 });
+router.get('/events/show/:id/options', authcheck,(req,res)=>{
+  res.render('eventOptions',{
+    id: req.params.id
+  });
+
+});
 
 router.post('/saved', (req,res) => {
   var name = req.body.ename;
@@ -58,10 +64,14 @@ router.post('/saved', (req,res) => {
   var edate = req.body.endDate;
   var id = req.body.eventId;
   var code = req.body.code;
+ 
+  var desc = req.body.desc;
+  var lon = req.body.long;
+  var lat = req.body.lat;
 
   //res.send("Added succesfully");
-  var sql = `UPDATE events SET name='${name}', location='${loc}', start_date = '${sdate}', end_date = '${edate}',code = '${code}' WHERE events.id='${id}'`;
-  db.query(sql, function (err, result) {
+    var sql = `UPDATE events SET name='${name}', location='${loc}', start_date = '${sdate}', end_date = '${edate}', code = '${code}', longitude = '${lon}', latitude = '${lat}', description = '${desc}' WHERE events.id='${id}'`;
+    db.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 record inserted");
     res.redirect('/ema/adminWelcome/events');

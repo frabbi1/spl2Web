@@ -14,6 +14,8 @@ var authcheck = (req,res,next)=>{
 
 };
 
+
+
 router.get('/:id', authcheck,(req,res)=>{
   var id = req.params.id;
   var sql = "select * from `events` where id= '"+id+"' ";
