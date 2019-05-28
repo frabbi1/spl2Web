@@ -11,7 +11,7 @@ var cookieParser = require('cookie-parser');
 
 
 var app = express();
-var port = 4001;
+var port = 3009;
 
 //web
 var auth = require("./routes/auth");
@@ -25,10 +25,13 @@ var showUser = require("./routes/showUser");
 var adminWelcome = require('./routes/adminWelcome');
 var photo = require('./routes/photo');
 var files = require('./routes/files');
+var nearby = require('./routes/nearby');
+var notification = require('./routes/notification');
 
 //android
 var participantInfo = require("./android/participants")
 var event = require("./android/event")
+var file = require("./android/file")
 
 
 app.use('/ema/public', express.static(path.join(__dirname, 'public')))
@@ -63,11 +66,14 @@ app.use('/ema/showUser', showUser);
 app.use('/ema/adminWelcome', adminWelcome);
 app.use('/ema/photo', photo);
 app.use('/ema/files', files);
+app.use('/ema/nearby', nearby);
+app.use('/ema/notification', notification);
 
 
 //android
 app.use('/ema/participants', participantInfo)
 app.use('/ema/event',event);
+app.use('/ema/file',file);
 
 app.listen(port, (err)=>{
   if(err) console.log("Error in connection");
