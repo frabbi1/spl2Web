@@ -31,9 +31,14 @@ router.get('/:id',authcheck,(req,res)=>{
 
 router.post('/save/:id',(req,res)=>{
 	var id = req.params.id;
-	var text = req.body.notification
-
-	console.log(text)
+	var text = req.body.notification;
+  var sql = `insert into notification (eventId,text) VALUES ('${id}','${text}')`;
+  db.query(sql, (err,result)=>{
+    res.render('eventOptions',{
+      "id":id
+    })
+  })
+	
 })
 
 module.exports = router;

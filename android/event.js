@@ -133,4 +133,27 @@ router.get('/nearme/:id',(req,res)=>{
 	})
 })
 
+router.get('/notification/:id',(req,res)=>{
+	var id = req.params.id;
+	var sql = "select * from notification where eventId = '" +id +"'";
+	var notifications = [];
+	db.query(sql, (err,result)=>{
+		if(err) throw err;
+
+		async.each(result, function(row,cb){
+			var temp = row.text;
+			
+			notifications.push(temp)
+			
+			
+			
+		}, function(err){
+			console.log(notifications.length);
+			
+
+		});
+		res.json(notifications);
+	})
+})
+
 module.exports = router;
